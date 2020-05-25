@@ -61,12 +61,22 @@
             stat:
               path: /var/log/nginx
             register: check_owner5
-          - name: Show infor of /var/log/httpd
+          - name: Show infor of /var/log/nginx
             debug:
               msg:
                   - "Owner: {{ check_owner5.stat.pw_name }}"
                   - "Group: {{ check_owner5.stat.gr_name }}"
                   - "Mode:  {{ check_owner5.stat.mode }}"
+          - name: Get stat of directory /usr/share/nginx/html
+            stat:
+              path: /usr/share/nginx/html
+            register: check_owner5
+          - name: Show infor of /usr/share/nginx/html
+            debug:
+              msg:
+                  - "Owner: {{ check_owner6.stat.pw_name }}"
+                  - "Group: {{ check_owner6.stat.gr_name }}"
+                  - "Mode:  {{ check_owner6.stat.mode }}"
          
 
 
