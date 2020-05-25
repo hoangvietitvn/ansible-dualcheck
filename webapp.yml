@@ -1,0 +1,32 @@
+
+---
+- name: webapp playbook
+  hosts: webapp
+  remote_user: sysadmin
+  become: yes
+  become_user: root
+  become_method: sudo
+  tasks:
+          - name: Get stat of directory PHP-FPM.D
+            stat:
+              path: /etc/php-fpm.d/
+            register: check_owner
+          - name: Show infor php-fpm.d
+            debug:
+              msg:
+                  - "Owner: {{ check_owner.stat.pw_name }}"
+                  - "Group: {{ check_owner.stat.gr_name }}"
+                  - "Mode:  {{ check_owner.stat.mode }}"
+          - name: Get stat of directory /var/www
+            stat:
+              path: /var/www
+            register: check_owner
+          - name: Show infor of /var/www
+            debug:
+              msg:
+                  - "Owner: {{ check_owner.stat.pw_name }}"
+                  - "Group: {{ check_owner.stat.gr_name }}"
+                  - "Mode:  {{ check_owner.stat.mode }}"
+
+
+
