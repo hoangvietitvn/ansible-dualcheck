@@ -7,7 +7,7 @@
   become_user: root
   become_method: sudo
   tasks:
-          - name: Get stat of directory PHP-FPM.D
+          - name: Get stat of directory php-fpm.d
             stat:
               path: /etc/php-fpm.d/
             register: check_owner
@@ -17,16 +17,57 @@
                   - "Owner: {{ check_owner.stat.pw_name }}"
                   - "Group: {{ check_owner.stat.gr_name }}"
                   - "Mode:  {{ check_owner.stat.mode }}"
+          - name: Get stat of file php.ini
+            stat:
+              path: /etc/php.ini
+            register: check_owner1
+          - name: Show infor php.ini
+            debug:
+              msg:
+                  - "Owner: {{ check_owner1.stat.pw_name }}"
+                  - "Group: {{ check_owner1.stat.gr_name }}"
+                  - "Mode:  {{ check_owner1.stat.mode }}"
+          - name: Get stat of php-fpm directory in logs
+            stat:
+              path: /var/log/php-fpm
+            register: check_owner2
+          - name: Show infor php-fpm log directory
+            debug:
+              msg:
+                  - "Owner: {{ check_owner2.stat.pw_name }}"
+                  - "Group: {{ check_owner2.stat.gr_name }}"
+                  - "Mode:  {{ check_owner2.stat.mode }}"         
           - name: Get stat of directory /var/www
             stat:
               path: /var/www
-            register: check_owner
+            register: check_owner3
           - name: Show infor of /var/www
             debug:
               msg:
-                  - "Owner: {{ check_owner.stat.pw_name }}"
-                  - "Group: {{ check_owner.stat.gr_name }}"
-                  - "Mode:  {{ check_owner.stat.mode }}"
+                  - "Owner: {{ check_owner3.stat.pw_name }}"
+                  - "Group: {{ check_owner3.stat.gr_name }}"
+                  - "Mode:  {{ check_owner3.stat.mode }}"
+          - name: Get stat of directory /var/log/nginx
+            stat:
+              path: /var/log/nginx
+            register: check_owner4
+          - name: Show infor of /var/log/nginx
+            debug:
+              msg:
+                  - "Owner: {{ check_owner4.stat.pw_name }}"
+                  - "Group: {{ check_owner4.stat.gr_name }}"
+                  - "Mode:  {{ check_owner4.stat.mode }}"        
+          - name: Get stat of directory /var/log/nginx
+            stat:
+              path: /var/log/nginx
+            register: check_owner5
+          - name: Show infor of /var/log/httpd
+            debug:
+              msg:
+                  - "Owner: {{ check_owner5.stat.pw_name }}"
+                  - "Group: {{ check_owner5.stat.gr_name }}"
+                  - "Mode:  {{ check_owner5.stat.mode }}"
+         
 
 
 
