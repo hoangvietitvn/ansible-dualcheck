@@ -17,6 +17,7 @@
                   - "Owner: {{ check_owner.stat.pw_name }}"
                   - "Group: {{ check_owner.stat.gr_name }}"
                   - "Mode:  {{ check_owner.stat.mode }}"
+            ignore_errors: yes
           - name: Get stat of file /etc/php-fpm.d/www.conf
             stat:
               path: /etc/php-fpm.d/www.conf
@@ -27,6 +28,7 @@
                   - "Owner: {{ check_owner0.stat.pw_name }}"
                   - "Group: {{ check_owner0.stat.gr_name }}"
                   - "Mode:  {{ check_owner0.stat.mode }}"
+            ignore_errors: yes
           - name: Get stat of file php.ini
             stat:
               path: /etc/php.ini
@@ -37,6 +39,7 @@
                   - "Owner: {{ check_owner1.stat.pw_name }}"
                   - "Group: {{ check_owner1.stat.gr_name }}"
                   - "Mode:  {{ check_owner1.stat.mode }}"
+            ignore_errors: yes
           - name: Get stat of /var/log/php-fpm
             stat:
               path: /var/log/php-fpm
@@ -46,7 +49,8 @@
               msg:
                   - "Owner: {{ check_owner2.stat.pw_name }}"
                   - "Group: {{ check_owner2.stat.gr_name }}"
-                  - "Mode:  {{ check_owner2.stat.mode }}"         
+                  - "Mode:  {{ check_owner2.stat.mode }}" 
+            ignore_errors: yes
           - name: Get stat of directory /var/www
             stat:
               path: /var/www
@@ -57,6 +61,7 @@
                   - "Owner: {{ check_owner3.stat.pw_name }}"
                   - "Group: {{ check_owner3.stat.gr_name }}"
                   - "Mode:  {{ check_owner3.stat.mode }}"
+            ignore_errors: yes
           - name: Get stat of directory /var/www/html
             stat:
               path: /var/www/html
@@ -67,6 +72,7 @@
                   - "Owner: {{ check_owner4.stat.pw_name }}"
                   - "Group: {{ check_owner4.stat.gr_name }}"
                   - "Mode:  {{ check_owner4.stat.mode }}"
+            ignore_errors: yes
           - name: Get stat of directory /etc/httpd/conf
             stat:
               path: /etc/httpd/conf
@@ -77,7 +83,8 @@
                   - "Owner: {{ check_owner5.stat.pw_name }}"
                   - "Group: {{ check_owner5.stat.gr_name }}"
                   - "Mode:  {{ check_owner5.stat.mode }}"
-         - name: Get stat of file /etc/httpd/conf/httpd.conf
+            ignore_errors: yes
+          - name: Get stat of file /etc/httpd/conf/httpd.conf
             stat:
               path: /etc/httpd/conf/httpd.conf
             register: check_owner6
@@ -87,6 +94,7 @@
                   - "Owner: {{ check_owner6.stat.pw_name }}"
                   - "Group: {{ check_owner6.stat.gr_name }}"
                   - "Mode:  {{ check_owner6.stat.mode }}"
+            ignore_errors: yes
           - name: Get stat of directory /var/log/nginx
             stat:
               path: /var/log/nginx
@@ -96,7 +104,8 @@
               msg:
                   - "Owner: {{ check_owner7.stat.pw_name }}"
                   - "Group: {{ check_owner7.stat.gr_name }}"
-                  - "Mode:  {{ check_owner7.stat.mode }}"        
+                  - "Mode:  {{ check_owner7.stat.mode }}"
+            ignore_errors: yes
           - name: Get stat of file /etc/nginx/nginx.conf
             stat:
               path: /etc/nginx/nginx.conf
@@ -107,6 +116,7 @@
                   - "Owner: {{ check_owner8.stat.pw_name }}"
                   - "Group: {{ check_owner8.stat.gr_name }}"
                   - "Mode:  {{ check_owner8.stat.mode }}"
+            ignore_errors: yes
           - name: Get stat of directory /usr/share/nginx/html
             stat:
               path: /usr/share/nginx/html
@@ -117,6 +127,7 @@
                   - "Owner: {{ check_owner9.stat.pw_name }}"
                   - "Group: {{ check_owner9.stat.gr_name }}"
                   - "Mode:  {{ check_owner9.stat.mode }}"
+            ignore_errors: yes
           - name: Get stat of directory /var/lib
             stat:
               path: /var/lib
@@ -127,6 +138,7 @@
                   - "Owner: {{ check_owner10.stat.pw_name }}"
                   - "Group: {{ check_owner10.stat.gr_name }}"
                   - "Mode:  {{ check_owner10.stat.mode }}"
+            ignore_errors: yes
           - name: Get stat of directory /var/lib64
             stat:
               path: /var/lib64
@@ -137,6 +149,7 @@
                   - "Owner: {{ check_owner11.stat.pw_name }}"
                   - "Group: {{ check_owner11.stat.gr_name }}"
                   - "Mode:  {{ check_owner11.stat.mode }}"
+            ignore_errors: yes
           - name: Get stat of directory /var/lib/mysql
             stat:
               path: /var/lib/mysql
@@ -147,6 +160,7 @@
                   - "Owner: {{ check_owner12.stat.pw_name }}"
                   - "Group: {{ check_owner12.stat.gr_name }}"
                   - "Mode:  {{ check_owner12.stat.mode }}"
+            ignore_errors: yes
           
           
                 
